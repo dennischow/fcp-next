@@ -57,7 +57,7 @@ const AppHeader = ({ props, ...otherProps }) => {
                 </button>
                 <AppMainNav isMainNavShown={isMainNavShown} />
             </div>
-            <button className={`app-header__scroll-to-top ${windowScroll.percentage < 30 ? "app-header__scroll-to-top--peneding" : ""}`} type="button" onClick={scrollToTopHandler}>
+            <button className={`app-header__scroll-to-top ${windowScroll.percentage < 30 ? "app-header__scroll-to-top--pending" : ""}`} type="button" onClick={scrollToTopHandler}>
                 scroll to Top <FaArrowRight />
             </button>
         </header>
