@@ -1,0 +1,248 @@
+.app-feature-banner {
+    position: relative;
+    background-color: var(--c-lighter-gray);
+
+    &__container {
+        padding: 0;
+    }
+
+    &__box {
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 0;
+    }
+
+    &__tagline {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 30px;
+        height: max(320px, 25vw);
+
+        @include max-media($scr-tablet) {
+            padding: 20px;
+        }
+
+    }
+
+    &__heading {
+        font-size: 5vw;
+        text-transform: uppercase;
+        color: var(--c-body);
+        line-height: 0.9em;
+        font-weight: 700;
+
+        @include max-media($scr-laptop) {
+            font-size: calc(var(--text-size-xxl) * 1.5);
+        }
+
+        @include max-media($scr-tablet) {
+            font-size: calc(var(--text-size-xxl) * 1.15);
+        }
+
+    }
+
+    &__sub-heading {
+        margin-top: 0;
+        margin-bottom: 0;
+        color: var(--c-dark-orange);
+        font-size: var(--text-size-l);
+        line-height: 1.2em;
+        text-transform: uppercase;
+
+        @include max-media($scr-laptop) {
+            font-size: var(--text-size-m);
+        }
+
+        @include max-media($scr-tablet) {
+            font-size: var(--text-size-s);
+        }
+
+    }
+
+    &--default {
+        background-image: linear-gradient(135deg,var(--c-lighten-gray) 0, var(--c-light-gray) 100%);
+    }
+
+    &--hero {
+        background-color: var(--c-black);
+
+        &::after {
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-image: linear-gradient(45deg, var(--c-red), var(--c-blue));
+            background-repeat: no-repeat;
+            content: "";
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        .app-feature-banner {
+
+            &__visual {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                z-index: 0;
+                animation: 8s linear infinite glitch-flashing;
+
+                &::after {
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background-color: var(--c-black);
+                    opacity: 0.4;
+                }
+
+            }
+
+            &__content {
+                animation: 8s linear infinite glitch-flashing;
+            }
+
+            &__tagline {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-start;
+                height: 100vh;
+
+                @include max-media($scr-laptop) {
+                    height: max(420px, 65vw);
+                }
+
+                @include max-media($scr-tablet) {
+                    height: 45vh;
+                }
+
+            }
+
+            &__heading {
+                font-size: 9vw;
+                text-transform: uppercase;
+                color: var(--c-white);
+                line-height: 0.7em;
+                font-weight: 700;
+                text-shadow: -2px 0 var(--c-red), 2px 0 var(--c-cyan);
+
+                @include max-media($scr-laptop) {
+                    font-size: calc(var(--text-size-xxl) * 2);
+                }
+
+                @include max-media($scr-tablet) {
+                    font-size: calc(var(--text-size-xxl) * 1.15);
+                    text-shadow: none;
+                }
+
+                span {
+                    display: block;
+                    position: relative;
+
+                    &:first-child {
+                        font-size: 40%;
+                        transform: translate(-10px, 30%);
+
+                        @include max-media($scr-tablet) {
+                            transform: translate(-5px, 27.5%);
+                        }
+
+                    }
+
+                }
+
+            }
+
+            &__sub-heading {
+                margin-top: 10px;
+                margin-bottom: 0;
+                padding: 4px 8px;
+                background-color: var(--c-dark-orange);
+                color: var(--c-body);
+                font-size: var(--text-size-m);
+                text-transform: uppercase;
+                transform: translate(-10px, 0);
+
+                @include max-media($scr-laptop) {
+                    font-size: calc(var(--text-size-m) - 0.2em);
+                }
+
+                @include max-media($scr-tablet) {
+                    margin-top: 0;
+                    background-color: inherit;
+                    color: var(--c-dark-orange);
+                    font-size: var(--text-size-s);
+                }
+
+            }
+
+        }
+
+    }
+
+    &--info {
+        background-color: var(--c-lighter-gray);
+
+        .app-feature-banner {
+
+            &__visual {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                filter: blur(15px);
+                transform: scale(1.05);
+                z-index: 0;
+
+                &::after {
+                    display: block;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background-color: var(--c-black);
+                    opacity: 0.6;
+                }
+
+            }
+
+            &__tagline {
+                height: max(420px, 35vw);
+            }
+
+            &__heading {
+                color: var(--c-white);
+            }
+
+            &__sub-heading {
+
+            }
+
+        }
+
+    }
+
+}

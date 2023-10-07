@@ -1,0 +1,485 @@
+.page-home {
+    .projects-highlight {
+        &__container {
+            display: flex;
+            padding: 20px;
+            justify-content: space-between;
+            gap: 20px;
+
+            @include max-media($scr-laptop) {
+                flex-direction: column;
+            }
+
+        }
+
+        &__teaser,
+        &__entries {
+            flex: 0 1 50%;
+
+            @include max-media($scr-laptop) {
+                flex: 1 0 auto;
+            }
+
+        }
+
+        &__teaser {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            height: max(580px, 35vw);
+            background-color: var(--c-light-gray);
+            background-image: linear-gradient(135deg, var(--c-darker-gray) 0, var(--c-gray) 100%);
+            text-align: center;
+            @include rounded-corners();
+
+            @include max-media($scr-laptop) {
+                height: 480px;
+            }
+
+            @include max-media($scr-tablet) {
+                height: 320px;
+            }
+
+        }
+
+        &__teaser-box {
+        }
+
+        &__teaser-title {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-family: "Thinking Of Betty Regular";
+            font-size: calc(var(--text-size-l) * 2.5);
+            color: var(--c-white);
+            font-weight: 400;
+
+            @include max-media($scr-laptop) {
+                font-size: calc(var(--text-size-l) * 2);
+            }
+
+        }
+
+        &__teaser-des {
+            margin-bottom: 20px;
+            font-size: var(--text-size-l);
+            color: var(--c-white);
+            line-height: 1.25em;
+
+            @include max-media($scr-laptop) {
+                font-size: var(--text-size-m);
+            }
+
+            @include max-media($scr-tablet) {
+                font-size: var(--text-size-body);
+            }
+
+        }
+
+        &__teaser-link {
+        }
+
+        &__entries {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            column-gap: 20px;
+            row-gap: 20px;
+
+            @include max-media($scr-laptop) {
+                height: 480px;
+            }
+
+            @include max-media($scr-tablet) {
+                height: 320px;
+            }
+
+        }
+
+        &__entry {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 10px;
+            background-color: var(--c-light-gray);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            @include rounded-corners();
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 20px -10px var(--c-darker-gray);
+            }
+
+        }
+
+        &__entry-visual {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            &::after {
+                position: absolute;
+                left: 0;
+                top: 0;
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.75);
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0, rgba(0, 0, 0, 0.5) 100%);
+                background-repeat: no-repeat;
+                transform: rotate(180deg);
+                z-index: 0;
+            }
+        }
+
+        &__entry-cat {
+            display: inline-block;
+            margin-bottom: 5px;
+            padding-bottom: 4px;
+            border-bottom: 2px solid var(--c-dark-orange);
+            font-size: var(--text-size-xs);
+            color: var(--c-white);
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        &__entry-title {
+            margin-bottom: 0;
+            font-size: var(--text-size-m);
+            color: var(--c-white);
+            font-weight: 700;
+            line-height: 1.25em;
+            z-index: 1;
+
+            @include max-media($scr-tablet) {
+                font-size: var(--text-size-body);
+            }
+
+            @include max-media($scr-phone) {
+                font-size: var(--text-size-s);
+            }
+
+        }
+    }
+
+    .recent-articles {
+        border-top: 1px solid var(--c-light-gray);
+
+        &__container {
+            position: relative;
+            padding: 40px 20px;
+        }
+
+        &__header {
+            position: relative;
+            padding-right: 20%;
+
+            @include max-media($scr-tablet) {
+                padding-right: 0;
+            }
+
+        }
+
+        &__header-title {
+            margin-bottom: 0;
+            font-size: calc(var(--text-size-m) * 2);
+            font-weight: 700;
+
+            @include max-media($scr-tablet) {
+                font-size: calc(var(--text-size-m) * 2);
+                text-align: center;
+            }
+
+        }
+
+        &__header-des {
+            margin-bottom: 20px;
+            color: var(--c-dark-orange);
+
+            @include max-media($scr-tablet) {
+                text-align: center;
+            }
+
+        }
+
+        &__view-all-link {
+            display: block;
+            position: absolute;
+            right: 20px;
+            top: 50px;
+            text-decoration: underline;
+            text-transform: capitalize;
+            font-weight: 700;
+            text-align: right;
+
+            @include max-media($scr-tablet) {
+                position: relative;
+                right: 0;
+                top: 0;
+                margin-top: 20px;
+            }
+
+        }
+
+        &__entries {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 20px;
+            row-gap: 20px;
+
+            @include max-media($scr-tablet) {
+                margin: 0 -20px;
+                padding: 0 20px;
+                grid-template-columns: inherit;
+                grid-auto-flow: column;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+            }
+
+        }
+
+        &__entry {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 10px;
+            width: auto;
+            height: max(300px, 17.5vw);
+            background-color: var(--c-light-gray);
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            @include rounded-corners();
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 20px -10px var(--c-darker-gray);
+            }
+
+            @include max-media($scr-laptop) {
+                height: 240px;
+            }
+
+            &:nth-child(n + 7) {
+                display: none;
+            }
+
+            @include max-media($scr-tablet) {
+                scroll-snap-align: center;
+
+                &:hover {
+                    transform: none;
+                    box-shadow: none;
+                }
+
+                width: calc(85vw);
+
+                &:nth-child(n + 7) {
+                    display: flex;
+                }
+
+            }
+
+        }
+
+        &__entry-visual {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 0;
+
+            &::after {
+                position: absolute;
+                left: 0;
+                top: 0;
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.75);
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0, rgba(0, 0, 0, 0.5) 100%);
+                background-repeat: no-repeat;
+                transform: rotate(180deg);
+                z-index: 0;
+            }
+        }
+
+        &__entry-title {
+            margin-bottom: 5px;
+            font-size: var(--text-size-xl);
+            color: var(--c-white);
+            font-weight: 700;
+            line-height: 1.25;
+            z-index: 1;
+
+            @include max-media($scr-laptop) {
+                font-size: var(--text-size-m);
+            }
+
+        }
+
+        &__entry-info {
+            font-size: var(--text-size-xs);
+            color: var(--c-white);
+            z-index: 1;
+        }
+
+        &__entry-date {
+
+        }
+    }
+
+    .passionate-highlight {
+        border-top: 1px solid var(--c-light-gray);
+
+        &:hover {
+
+            .passionate-highlight {
+
+                &__interest {
+
+                    &:last-child {
+                        transform: scale(1.25);
+
+                        .passionate-highlight__interest-icon {
+
+                        }
+
+                        .passionate-highlight__interest-text {
+
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+
+        &__container {
+            display: flex;
+            padding: 20px;
+            flex-direction: row-reverse;
+            gap: 20px;
+
+            @include max-media($scr-laptop) {
+                flex-direction: column;
+            }
+
+        }
+
+        &__teaser,
+        &__interests {
+            flex: 1 1 50%;
+            @include rounded-corners();
+
+            @include max-media($scr-laptop) {
+                flex: 1 0 auto;
+            }
+
+        }
+
+        &__teaser {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            height: max(580px, 35vw);
+            background-color: var(--c-light-gray);
+            background-image: linear-gradient(135deg, var(--c-orange) 0, var(--c-dark-orange) 100%);
+            text-align: center;
+
+            @include max-media($scr-laptop) {
+                height: 480px;
+            }
+
+            @include max-media($scr-tablet) {
+                height: 320px;
+            }
+
+        }
+
+        &__teaser-box {
+        }
+
+        &__teaser-title {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-family: "Thinking Of Betty Regular";
+            font-size: calc(var(--text-size-l) * 2.5);
+            color: var(--c-white);
+            font-weight: 400;
+
+            @include max-media($scr-laptop) {
+                font-size: calc(var(--text-size-l) * 2);
+            }
+
+        }
+
+        &__teaser-des {
+            margin-bottom: 20px;
+            font-size: var(--text-size-l);
+            color: var(--c-white);
+
+            @include max-media($scr-laptop) {
+                font-size: var(--text-size-m);
+            }
+
+            @include max-media($scr-tablet) {
+                font-size: var(--text-size-body);
+            }
+
+        }
+
+        &__interests {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--c-light-gray);
+
+            @include max-media($scr-laptop) {
+                display: none;
+            }
+
+        }
+
+        &__interest {
+            margin: 0 15px;
+            color: var(--c-darker-gray);
+            background-color: transparent;
+            transition: all 0.2s ease-in-out;
+        }
+
+        &__interest-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0;
+            width: 100px;
+            height: 100px;
+            border: 10px solid var(--c-darker-gray);
+            border-radius: 500px;
+            font-size: calc(var(--text-size-l) * 1.75);
+        }
+
+        &__interest-text {
+            margin-top: 10px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+.app-footer {
+    position: relative;
+    padding: 20px 0;
+    background-color: var(--c-white);
+    border-top: 1px solid var(--c-light-gray);
+    z-index: 0;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        height: 100%;
+
+        @include max-media($scr-tablet) {
+            display: block;
+        }
+
+    }
+
+    &__text {
+        color: var(--c-gray);
+        font-size: var(--text-size-s);
+    }
+
+    &__copyright-info,
+    &__remark {
+        display: block;
+        margin: 0;
+
+        @include max-media($scr-tablet) {
+            text-align: center;
+        }
+
+    }
+
+    &__remark {
+        text-align: right;
+
+        @include max-media($scr-tablet) {
+            text-align: center;
+        }
+
+    }
+}

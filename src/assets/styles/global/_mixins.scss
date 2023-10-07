@@ -1,0 +1,25 @@
+@mixin max-media($width) {
+    @media only screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin min-media($width) {
+    @media only screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin dynamic-grid($layout-gap: 10px, $column-count: 3, $item-min-width: 320px) {
+    $total-gap-width: ($column-count - 1) * $layout-gap;
+    $grid-item-max-width: calc(100% - #{$total-gap-width}) / #{$column-count};
+
+    display: grid;
+    grid-gap: $layout-gap;
+    grid-template-columns: repeat(auto-fill, minmax(max($item-min-width, $grid-item-max-width), 1fr));
+}
+
+@mixin rounded-corners() {
+    border-radius: var(--corner-radius);
+    overflow: hidden;
+}

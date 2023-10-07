@@ -1,0 +1,66 @@
+:root {
+    // COLORS
+    --c-orange: #f7931d;
+    --c-dark-orange: #f05a2a;
+
+    --c-lemon: #ffde00;
+    --c-mango: #ffcc00;
+
+    --c-lettuce-green: #27ae60;
+    --c-lime-green: #23eea4;
+
+    --c-dark-blue: #3575ba;
+    --c-blue: #27aae1;
+    --c-cyan: #00ffff;
+
+    --c-light-red: #a94442;
+    --c-red: #ff0000;
+
+    --c-black: #000000;
+    --c-white: #ffffff;
+    --c-base-color: #212427;
+
+    --c-darken-gray: #444444;
+    --c-darker-gray: #666666;
+    --c-dark-gray: #777777;
+    --c-gray: #999999;
+    --c-light-gray: #cccccc;
+    --c-lighter-gray: #eeeeee;
+    --c-lighten-gray: #f7f7f7;
+
+    // FONT SIZES
+    --text-size-xxl: 3.2rem;
+    --text-size-xl: 2.8rem;
+    --text-size-l: 2.4rem;
+    --text-size-m: 2rem;
+    --text-size-body: 1.6rem;
+    --text-size-s: 1.4rem;
+    --text-size-xs: 1.2rem;
+    --text-size-xxs: 1rem;
+
+    // BODER RADIUS
+    --corner-radius: 10px;
+}
+
+/*********************************************
+ * Screen Breakpoints
+ *********************************************/
+/*
+ * Large devices (large desktops, 1199px and down)
+ */
+$scr-desktop: "1199px";
+
+/*
+ * Medium devices (desktops, 991px and down)
+ */
+$scr-laptop: "991px";
+
+/*
+ * Small devices (tablets, 767px and down)
+ */
+$scr-tablet: "767px";
+
+/*
+ * Extra Small devices (smart phones, 679 and down)
+ */
+$scr-phone: "679px";
