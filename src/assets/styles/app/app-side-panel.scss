@@ -1,0 +1,44 @@
+.app-side-panel {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+    backdrop-filter: blur(10px);
+
+    @include max-media($scr-tablet) {
+        z-index: 5;
+    }
+
+    &__inner {
+        position: relative;
+        margin: 0 0 0 auto;
+        width: 380px;
+        height: 100vh;
+        background-color: var(--c-lighten-gray);
+        background-repeat: repeat;
+        background-size: 240px auto;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+
+        @include max-media($scr-tablet) {
+            margin: 0 0 0 auto;
+            width: 300px;
+        }
+
+    }
+
+    &__overlay {
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        content: "";
+        background-color: var(--c-black);
+        opacity: 0.7;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+}

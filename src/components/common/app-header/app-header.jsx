@@ -10,12 +10,7 @@ import AppMainNav from "../app-main-nav/app-main-nav";
 
 const AppHeader = ({ props, ...otherProps }) => {
     const [isMainNavShown, setIsMainNavShown] = useState(false);
-    // const location = useLocation();
     const windowScroll = useWindowScroll();
-
-    // useEffect(() => {
-    //     setIsMainNavShown(false);
-    // }, [location]);
 
     const navToggleHandler = () => {
         setIsMainNavShown(!isMainNavShown);
@@ -48,7 +43,7 @@ const AppHeader = ({ props, ...otherProps }) => {
             <div className="app-header__container">
                 <h1 className="app-header__brand">
                     <Link className="app-header__brand-link" href={CONSTANTS.ROUTES.home.path}>
-                        <img className="app-header__brand-logo" src={BrandLogo.src} />
+                        <img className="app-header__brand-logo" src={BrandLogo.src} width={40} height={40} />
                         <span className="app-header__brand-name">{CONSTANTS.BRAND_NAME}</span>
                     </Link>
                 </h1>

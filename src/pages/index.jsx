@@ -135,7 +135,7 @@ export default function Home({ projectEntries, articleEntries, testimonialEntrie
 
                     {isYoutubePlayerOn && <YoutubePlayer closeYoutubePlayer={closeYoutubePlayer} />}
 
-                    <TestimonialWidget isContentExpandedByDefault={true} entriesLimitByDefault={5} testimonialEntries={testimonialEntries} />
+                    <TestimonialWidget isContentExpandedByDefault={false} entriesLimitByDefault={5} testimonialEntries={testimonialEntries} />
                 </div>
             </AppLayout>
         </>

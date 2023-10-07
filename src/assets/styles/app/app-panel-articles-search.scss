@@ -1,0 +1,122 @@
+.app-panel-articles-search {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100%;
+
+    &__form,
+    &__result {
+        flex: 0 0 auto;
+    }
+
+    &__form {
+    }
+
+    &__fieldset {
+        position: relative;
+    }
+
+    &__legend {
+        display: none;
+    }
+
+    &__input {
+        padding: 10px 40px 10px 10px;
+        width: 100%;
+        border: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+        font-size: var(--text-size-s);
+    }
+
+    &__button {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        padding: 5px;
+        background: transparent;
+        transform: translate(-5px, -50%);
+        color: var(--c-gray);
+        font-size: var(--text-size-xs);
+    }
+
+    &__result {
+        flex: 0 1 auto;
+        overflow: hidden;
+        overflow-y: auto;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+
+        &::-webkit-scrollbar {
+            width: 10px;
+            background-color: var(--c-lighten-gray);
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: var(--c-lighten-gray);
+            box-shadow: inset 0 0 0 2px var(--c-lighten-gray);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--c-gray);
+            outline: none;
+            border: 2px solid var(--c-lighten-gray);
+            border-radius: 500px;
+
+            &:hover,
+            &:active {
+                background-color: var(--c-dark-gray);
+            }
+        }
+    }
+
+    &__result-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    &__result-list-item {
+        background-color: var(--c-white);
+        border-top: 1px solid var(--c-lighter-gray);
+
+        &:first-child {
+            border-top: none;
+        }
+
+        &:not(.app-panel-articles-search__result-list-item--empty) {
+            border-left: 2px solid transparent;
+
+            &:hover,
+            &:active {
+                border-left-color: var(--c-orange);
+                background-color: var(--c-lighten-gray);
+            }
+        }
+
+        &--empty {
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+
+            .app-panel-articles-search__result-list-item-link {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: var(--c-gray);
+                cursor: default;
+                text-align: center;
+            }
+        }
+    }
+
+    &__result-list-item-link {
+        display: block;
+        padding: 10px;
+        font-size: var(--text-size-s);
+        background-color: transparent;
+        color: var(--c-gray);
+        text-align: left;
+        text-decoration: none;
+
+        &:hover {
+            color: var(--c-dark-gray);
+        }
+    }
+}

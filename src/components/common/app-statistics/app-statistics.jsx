@@ -1,14 +1,7 @@
-const AppStatistics = () => {
-    const staticData = {
-        allProjectsJson: [],
-        allArticlesJson: [],
-        allTestimonialsJson: [],
-    };
+import useEntriesStore from "@/store/entries";
 
-    const { allProjectsJson, allArticlesJson, allTestimonialsJson } = staticData;
-    const projectsCount = allProjectsJson.length;
-    const articlesCount = allArticlesJson.length;
-    const testimonialsCount = allTestimonialsJson.length;
+const AppStatistics = () => {
+    const { projectEntries, articleEntries, testimonialEntries } = useEntriesStore();
 
     return (
         <div className="app-statistics">
@@ -16,19 +9,19 @@ const AppStatistics = () => {
                 <div className="app-statistics__col">
                     <div className="app-statistics__box">
                         <p className="app-statistics__content">
-                            <span className="app-statistics__num">{projectsCount}</span>
+                            <span className="app-statistics__num">{projectEntries?.length}</span>
                             <span className="app-statistics__text">project uploaded</span>
                         </p>
                     </div>
                     <div className="app-statistics__box">
                         <p className="app-statistics__content">
-                            <span className="app-statistics__num">{articlesCount}</span>
+                            <span className="app-statistics__num">{articleEntries?.length}</span>
                             <span className="app-statistics__text">articles shared</span>
                         </p>
                     </div>
                     <div className="app-statistics__box">
                         <p className="app-statistics__content">
-                            <span className="app-statistics__num">{testimonialsCount}</span>
+                            <span className="app-statistics__num">{testimonialEntries?.length}</span>
                             <span className="app-statistics__text">testimonials received</span>
                         </p>
                     </div>
