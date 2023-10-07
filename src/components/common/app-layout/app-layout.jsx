@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import AppHeader from "../app-header/app-header";
 import AppFooter from "../app-footer/app-footer";
+import AppStatistics from "../app-statistics/app-statistics";
 
 const AppLayout = ({ children }) => {
     return (
@@ -16,6 +17,7 @@ const AppLayout = ({ children }) => {
             <div className="app-view">
                 <AppHeader />
                 <main className="app-main">{children}</main>
+                <AppStatistics />
                 <AppFooter />
             </div>
         </>
