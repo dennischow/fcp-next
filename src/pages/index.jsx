@@ -13,7 +13,7 @@ import YoutubePlayer from "@/components/shared/youtube-player/youtube-player";
 import TestimonialWidget from "@/components/shared/testimonial-widget/testimonial-widget";
 import heroBackgroundImg from "../assets/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
 
-export default function Home({ projectEntries, articleEntries, testimonialEntries }) {
+export default function PageHome({ projectEntries, articleEntries, testimonialEntries }) {
 
     const [isYoutubePlayerOn, setIsYoutubePlayerOn] = useState(false);
 
@@ -43,7 +43,7 @@ export default function Home({ projectEntries, articleEntries, testimonialEntrie
                                     <p className="projects-highlight__teaser-des">
                                         There are different ways to be creative. Find out what mine are.
                                     </p>
-                                    <Link className="projects-highlight__teaser-link app-cta app-cta--white" href="/about">
+                                    <Link className="projects-highlight__teaser-link app-cta app-cta--white" href={CONSTANTS.ROUTES.projectsOverview.path}>
                                         Check it out <FaArrowRight />
                                     </Link>
                                 </div>

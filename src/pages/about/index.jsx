@@ -35,7 +35,7 @@ ChartJS.register(
     Legend
 );
 
-export default function About({ testimonialEntries }) {
+export default function PageAbout({ testimonialEntries }) {
 
     const aWeekOfMyWeek = {
         options: {

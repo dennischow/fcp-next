@@ -1,0 +1,196 @@
+.page-projects-overview {
+
+    .projects-container {
+
+    }
+
+    .projects-category {
+        margin-top: 40px;
+
+        &__container {
+            padding: 0 20px;
+        }
+
+        &__list {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border-bottom: 2px solid var(--c-lighter-gray);
+        }
+
+        &__list-item {
+            margin-bottom: -2px;
+            border-bottom: 2px solid transparent;
+
+            @include max-media($scr-tablet) {
+                flex: 1 0 auto;
+            }
+
+            &--active {
+                border-bottom-color: var(--c-orange);
+
+                &:hover {
+                    border-bottom-color: var(--c-orange);
+                }
+
+                .projects-category__btn {
+                    color: var(--c-body);
+                }
+            }
+        }
+
+        &__btn {
+            display: flex;
+            padding: 0 20px;
+            width: 100%;
+            height: 48px;
+            justify-content: center;
+            align-items: center;
+            color: var(--c-light-gray);
+            text-decoration: none;
+            text-align: center;
+            background-color: transparent;
+
+            @include max-media($scr-tablet) {
+                padding: 0 5px;
+            }
+
+        }
+    }
+
+    .projects-intro {
+        margin: 40px 0 20px;
+
+        &__container {
+            padding: 0 20px;
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            @include max-media($scr-tablet) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+        &__category-name {
+            font-size: var(--text-size-s);
+            color: var(--c-gray);
+
+            @include max-media($scr-tablet) {
+                color: var(--c-orange);
+            }
+
+        }
+
+        &__definition {
+            font-size: var(--text-size-xxl);
+            line-height: 1.25em;
+            font-weight: 700;
+            color: var(--c-dark-gray);
+
+            @include max-media($scr-tablet) {
+                font-size: var(--text-size-xl);
+                color: var(--c-darken-gray);
+            }
+
+        }
+    }
+
+    .projects-block {
+        margin: 0 0 40px;
+
+        &__container {
+            padding: 0 20px;
+        }
+
+        &__list {
+            @include dynamic-grid(20px, 4, 280px);
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        &__list-item {
+        }
+
+        &__content {
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            padding: 10px;
+            height: max(240px, 17.5vw);
+            background-color: var(--c-lighter-gray);
+            overflow: hidden;
+            text-decoration: none;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            @include rounded-corners();
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 20px -10px var(--c-darker-gray);
+            }
+
+        }
+
+        &__title {
+            position: relative;
+            margin: 0;
+            font-size: max(var(--text-size-m), 1.5vw);
+            font-weight: 700;
+            line-height: 1.25;
+            z-index: 1;
+
+            @include max-media($scr-laptop) {
+                font-size: var(--text-size-m);
+            }
+
+        }
+
+        &__title-text {
+            color: var(--c-white);
+        }
+
+        &__img {
+            display: none;
+        }
+
+        &__visual {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 0;
+
+            &::after {
+                position: absolute;
+                left: 0;
+                top: 0;
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.75);
+                background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0, rgba(0, 0, 0, 0.5) 100%);
+                background-repeat: no-repeat;
+                transform: rotate(180deg);
+            }
+        }
+
+        &__buttons-container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+    }
+}
