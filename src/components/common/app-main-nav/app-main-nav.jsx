@@ -1,4 +1,3 @@
-// import { Link, useLocation } from "react-router-dom";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FaHome, FaUser, FaRegLightbulb, FaRss, FaRegEnvelope, FaSearch } from "react-icons/fa";
@@ -9,17 +8,16 @@ import useUIStore from "../../../store/ui";
 const AppMainNav = ({ isMainNavShown, ...otherProps }) => {
 
     const { setIsPanelContactShow, setIsPanelSearchShow } = useUIStore();
-    // const location = useLocation();
-    const location = useRouter();
+    const router = useRouter();
 
     const getNavItemClassName = ({ type }) => {
         const classNames = ["app-main-nav__item"];
         let isActive = false;
 
         if (type === "/") {
-            isActive = location.pathname === type;
+            isActive = router.asPath === type;
         } else {
-            isActive = location.pathname.startsWith(type);
+            isActive = router.asPath.startsWith(type);
         }
 
         if (isActive) {

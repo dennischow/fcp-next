@@ -9,7 +9,7 @@ const AppFooter = ({ props, ...otherProps }) => {
                 </small>
                 <p className="app-footer__remark">
                     {/* <span className="app-footer__text">{`Handcrafted by ${CONSTANTS.AUTHOR}`} 🤘🏼</span> */}
-                    <span className="app-footer__text">{`Built with ExpressionEngine + React + Next`} 🤘🏼</span>
+                    <span className="app-footer__text">{`Built with ExpressionEngine + React + Next.js`} 🤘🏼</span>
                 </p>
             </div>
         </footer>

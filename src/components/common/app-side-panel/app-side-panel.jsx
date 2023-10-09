@@ -7,11 +7,11 @@ import AppPanelArticlesSearch from "../app-panel-articles-search/app-panel-artic
 
 const AppSidePanel = () => {
     const { isPanelContactShow, isPanelSearchShow, setIsPanelSearchShow } = useUIStore();
-    const location = useRouter();
+    const router = useRouter();
 
     useEffect(() => {
         setIsPanelSearchShow(false);
-    }, [location.pathname]);
+    }, [router.asPath]);
 
     return (
         <>

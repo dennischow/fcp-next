@@ -12,13 +12,13 @@ const AppPanelArticlesSearch = () => {
     const { setIsPanelSearchShow } = useUIStore();
     const [articlesFilteredByKeywordSearch, setArticlesFilteredByKeywordSearch] = useState(articleEntries);
     const [searchValue, setSearchValue] = useState("");
-    const location = useRouter();
+    const router = useRouter();
 
     const keywordSearch = (event) => {
         const keyword = event.target.value;
         setSearchValue(keyword);
         const matchedList = articleEntries.filter((item) => item.title.toLowerCase().includes(keyword.toLowerCase()));
-        const result = matchedList.filter((item) => !location.pathname.includes(item.url_title));
+        const result = matchedList.filter((item) => !router.asPath.includes(item.url_title));
         setArticlesFilteredByKeywordSearch(result);
     };
 
