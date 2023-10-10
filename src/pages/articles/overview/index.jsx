@@ -146,13 +146,23 @@ const ArticlesOverview = ({ articleEntries }) => {
 export default ArticlesOverview;
 
 export async function getStaticProps() {
-    const [articles] = await Promise.all([
-        api.get.articles(),
-    ]);
+    try {
+        const [articles] = await Promise.all([
+            api.get.articles(),
+        ]);
 
-    return {
-        props: {
-            articleEntries: articles.data,
-        }, // will be passed to the page component as props
-    };
+        return {
+            props: {
+                articleEntries: articles.data,
+            }, // will be passed to the page component as props
+        };
+    } catch (error) {
+        console.error("Error fetching data:", error);
+
+        return {
+            props: {
+                articleEntries: [],
+            },
+        };
+    }
 }

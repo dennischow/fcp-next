@@ -148,21 +148,23 @@ const ProjectsOverview = ({ projectEntries }) => {
 export default ProjectsOverview;
 
 export async function getStaticProps() {
-    //Make API call here
-    // const response = await api.get.projects();
-    // const projectEntries = response.data;
-    // return {
-    //     props: { projectEntries }, // will be passed to the page component as props
-    // };
+    try {
+        const [projects] = await Promise.all([
+            api.get.projects(),
+        ]);
 
-    const [projects] = await Promise.all([
-        api.get.projects(),
-    ]);
+        return {
+            props: {
+                projectEntries: projects.data,
+            }, // will be passed to the page component as props
+        };
+    } catch (error) {
+        console.error("Error fetching data:", error);
 
-    return {
-        props: {
-            projectEntries: projects.data,
-        }, // will be passed to the page component as props
-    };
-
+        return {
+            props: {
+                projectEntries: [],
+            },
+        };
+    }
 }

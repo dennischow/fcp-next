@@ -35,7 +35,7 @@ ChartJS.register(
     Legend
 );
 
-export default function PageAbout({ testimonialEntries }) {
+const PageAbout = ({ testimonialEntries }) => {
 
     const aWeekOfMyWeek = {
         options: {
@@ -361,22 +361,26 @@ export default function PageAbout({ testimonialEntries }) {
     );
 }
 
+export default PageAbout;
+
 export async function getStaticProps() {
-    //Make API call here
-    // const response = await api.get.projects();
-    // const projectEntries = response.data;
-    // return {
-    //     props: { projectEntries }, // will be passed to the page component as props
-    // };
+    try {
+        const [testimonials] = await Promise.all([
+            api.get.testimonials(),
+        ]);
 
-    const [testimonials] = await Promise.all([
-        api.get.testimonials(),
-    ]);
+        return {
+            props: {
+                testimonialEntries: testimonials.data,
+            }, // will be passed to the page component as props
+        };
+    } catch (error) {
+        console.error("Error fetching data:", error);
 
-    return {
-        props: {
-            testimonialEntries: testimonials.data,
-        }, // will be passed to the page component as props
-    };
-
+        return {
+            props: {
+                testimonialEntries: [],
+            },
+        };
+    }
 }

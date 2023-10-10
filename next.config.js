@@ -5,7 +5,7 @@ const nextConfig = {
     reactStrictMode: true,
     output: "export",
     sassOptions: {
-        includePaths: [path.join(__dirname, "styles")],
+        includePaths: [path.join(__dirname, "assets/styles")],
         // prependData: `@import "./src/assets/styles/index.scss";`,
     },
 };

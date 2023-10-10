@@ -1,0 +1,119 @@
+.app-panel-contact {
+    padding: 10px;
+    height: 100%;
+    overflow-y: auto;
+
+    &__form {
+        flex: 0 0 auto;
+    }
+
+    &__fieldset {
+        position: relative;
+        margin: 0 auto 20px;
+        padding: 20px 10px;
+        border: 1px solid var(--c-light-gray);
+        border-radius: 5px;
+    }
+
+    &__legend {
+        margin-bottom: 0;
+        padding: 0 10px;
+        width: auto;
+        float: none;
+        font-size: var(--text-size-m);
+        font-weight: 700;
+        color: var(--c-gray);
+    }
+
+    &__buttons-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    &__button {
+        display: flex;;
+        justify-content: center;
+        align-items: center;
+        flex: 1 0 auto;
+        padding: 8px 10px;
+        border-radius: 5px;
+
+        &--reset {
+            background-color: transparent;
+            border: 2px solid var(--c-gray);
+            color: var(--c-gray);
+        }
+
+        &--submit {
+            background-color: var(--c-dark-orange);
+            border: 2px solid transparent;
+            color: var(--c-white);
+        }
+
+        & > svg {
+            margin-left: 5px;
+        }
+    }
+
+    &__note {
+        font-size: var(--text-size-xs);
+        color: var(--c-gray);
+        line-height: 1.5em;
+
+        & > svg {
+
+        }
+
+    }
+
+
+    &__loader {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--c-white);
+        z-index: 1;
+    }
+
+    &__loader-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    &__loader-indicator {
+        svg {
+            fill: var(--c-light-gray) !important;
+        }
+    }
+
+    &__loader-status {
+        margin-bottom: 0;
+        font-size: calc(var(--text-size-l) * 2);
+
+        &--success {
+            color: var(--c-lettuce-green);
+        }
+
+        &--failed {
+            color: var(--c-light-red);
+        }
+
+    }
+
+    &__loader-message {
+        color: var(--c-dark-gray);
+        text-align: center;
+    }
+
+}

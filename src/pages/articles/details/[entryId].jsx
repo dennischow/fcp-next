@@ -92,37 +92,57 @@ const PageArticlesDetails = ({ currentPost, relatedPosts }) => {
 export default PageArticlesDetails;
 
 export async function getStaticPaths() {
-    const [articles] = await Promise.all([
-        api.get.articles(),
-    ]);
+    try {
+        const [articles] = await Promise.all([
+            api.get.articles(),
+        ]);
 
-    const paths = articles.data.map((article) => ({
-        params: {
-            entryId: article.url_title,
-        },
-    }));
+        const paths = articles.data.map((article) => ({
+            params: {
+                entryId: article.url_title,
+            },
+        }));
 
-    return {
-        paths,
-        fallback: false,
-    };
+        return {
+            paths,
+            fallback: false,
+        };
+    } catch (error) {
+        console.error("Error fetching data:", error);
+
+        return {
+            paths: [],
+            fallback: false,
+        };
+    }
 }
 
 export async function getStaticProps({ params }) {
-    const [articles] = await Promise.all([
-        api.get.articles(),
-    ]);
+    try {
+        const [articles] = await Promise.all([
+            api.get.articles(),
+        ]);
 
-    const currentPost = articles.data.find((article) => {
-        return article.url_title === params.entryId;
-    });
+        const currentPost = articles.data.find((article) => {
+            return article.url_title === params.entryId;
+        });
 
-    const relatedPosts = currentPost?.related_post?.map((id) => articles.data.find((article) => article.entry_id === id)).filter((post) => post !== undefined);
+        const relatedPosts = currentPost?.related_post?.map((id) => articles.data.find((article) => article.entry_id === id)).filter((post) => post !== undefined);
 
-    return {
-        props: {
-            currentPost,
-            relatedPosts,
-        }, // will be passed to the page component as props
-    };
+        return {
+            props: {
+                currentPost,
+                relatedPosts,
+            },
+        };
+    } catch (error) {
+        console.error("Error fetching data:", error);
+
+        return {
+            props: {
+                currentPost: null,
+                relatedPosts: [],
+            },
+        };
+    }
 }

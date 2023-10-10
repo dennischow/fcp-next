@@ -6,7 +6,6 @@ import api from "@/services/api";
 import useEntriesStore from "@/store/entries";
 
 export default function App({ Component, pageProps }) {
-
     const {
         projectEntries,
         setProjectEntries,
@@ -18,6 +17,7 @@ export default function App({ Component, pageProps }) {
 
     const fetchData = async () => {
         if (projectEntries && articleEntries && testimonialEntries) return;
+
         try {
             const [projects, articles, testimonials] = await Promise.all([
                 api.get.projects(),
@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }) {
             console.log("articleEntries:", articles.data);
             console.log("testimonialEntries:", testimonials.data);
         } catch (error) {
-            console.log(error);
+            console.error("Error fetching data:", error);
         }
     };
 

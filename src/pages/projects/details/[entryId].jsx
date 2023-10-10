@@ -4,7 +4,7 @@ import api from "@/services/api";
 import AppLayout from "@/components/common/app-layout/app-layout";
 import AppFeatureBanner from "@/components/common/app-feature-banner/app-feature-banner";
 
-export default function Page({ currentPost }) {
+const PageProjectsDetails = ({ currentPost }) => {
     return (
         <>
             <AppLayout>
@@ -66,40 +66,56 @@ export default function Page({ currentPost }) {
     );
 }
 
+export default PageProjectsDetails;
+
 export async function getStaticPaths() {
-    // console.log(params);
-    const [projects] = await Promise.all([
-        api.get.projects(),
-    ]);
+    try {
+        const [projects] = await Promise.all([
+            api.get.projects(),
+        ]);
 
-    const paths = projects.data.map((project) => ({
-        params: {
-            entryId: project.url_title,
-        },
-    }));
+        const paths = projects.data.map((project) => ({
+            params: {
+                entryId: project.url_title,
+            },
+        }));
 
-    return {
-        paths,
-        fallback: false,
-    };
+        return {
+            paths,
+            fallback: false,
+        };
+    } catch (error) {
+        console.error("Error fetching data:", error);
+
+        return {
+            paths: [],
+            fallback: false,
+        };
+    }
 }
 
 export async function getStaticProps({ params }) {
-    // console.log(params);
-    const [projects] = await Promise.all([
-        api.get.projects(),
-    ]);
+    try {
+        const [projects] = await Promise.all([
+            api.get.projects(),
+        ]);
 
-    const currentPost = projects.data.find((project) => {
-        return project.url_title === params.entryId;
-    });
+        const currentPost = projects.data.find((project) => {
+            return project.url_title === params.entryId;
+        });
 
-    return {
-        props: {
-            currentPost,
-        }, // will be passed to the page component as props
-    };
+        return {
+            props: {
+                currentPost,
+            },
+        };
+    } catch (error) {
+        console.error("Error fetching data:", error);
+
+        return {
+            props: {
+                currentPost: null,
+            },
+        };
+    }
 }
-
-
-

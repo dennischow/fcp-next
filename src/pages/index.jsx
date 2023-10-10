@@ -13,8 +13,7 @@ import YoutubePlayer from "@/components/shared/youtube-player/youtube-player";
 import TestimonialWidget from "@/components/shared/testimonial-widget/testimonial-widget";
 import heroBackgroundImg from "../assets/images/home/polygon-colored-crossed-dark-extend-bg.jpg";
 
-export default function PageHome({ projectEntries, articleEntries, testimonialEntries }) {
-
+const PageHome = ({ projectEntries, articleEntries, testimonialEntries }) => {
     const [isYoutubePlayerOn, setIsYoutubePlayerOn] = useState(false);
 
     const openYoutubePlayer = () => setIsYoutubePlayerOn(true);
@@ -142,27 +141,32 @@ export default function PageHome({ projectEntries, articleEntries, testimonialEn
     );
 }
 
+export default PageHome;
 
 export async function getStaticProps() {
-    //Make API call here
-    // const response = await api.get.projects();
-    // const projectEntries = response.data;
-    // return {
-    //     props: { projectEntries }, // will be passed to the page component as props
-    // };
+    try {
+        const [projects, articles, testimonials] = await Promise.all([
+            api.get.projects(),
+            api.get.articles(),
+            api.get.testimonials(),
+        ]);
 
-    const [projects, articles, testimonials] = await Promise.all([
-        api.get.projects(),
-        api.get.articles(),
-        api.get.testimonials(),
-    ]);
+        return {
+            props: {
+                projectEntries: projects.data,
+                articleEntries: articles.data,
+                testimonialEntries: testimonials.data,
+            }, // will be passed to the page component as props
+        };
+    } catch (error) {
+        console.error("Error fetching data:", error);
 
-    return {
-        props: {
-            projectEntries: projects.data,
-            articleEntries: articles.data,
-            testimonialEntries: testimonials.data,
-        }, // will be passed to the page component as props
-    };
-
+        return {
+            props: {
+                projectEntries: [],
+                articleEntries: [],
+                testimonialEntries: [],
+            },
+        };
+    }
 }
