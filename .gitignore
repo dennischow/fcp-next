@@ -35,4 +35,10 @@ yarn-error.log*
 next-env.d.ts
 
 # dotenv environment variable files
-.env*
+.env.*
+
+# php services
+/public/services
+
+# deployment to FTP
+deploy.js
