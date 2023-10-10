@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import fs from "fs-extra";
+import path from "path";
 import { FaArrowRight } from "react-icons/fa";
 
 import * as CONSTANTS from "../../../common/constants";
@@ -148,15 +150,17 @@ const ProjectsOverview = ({ projectEntries }) => {
 export default ProjectsOverview;
 
 export async function getStaticProps() {
+    const dataFolderPath = path.join(process.cwd(), "src/data");
+
     try {
         const [projects] = await Promise.all([
-            api.get.projects(),
+            fs.readJson(path.join(dataFolderPath, "projects.json")),
         ]);
 
         return {
             props: {
-                projectEntries: projects.data,
-            }, // will be passed to the page component as props
+                projectEntries: projects,
+            },
         };
     } catch (error) {
         console.error("Error fetching data:", error);

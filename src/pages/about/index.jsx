@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
+import fs from "fs-extra";
+import path from "path";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -364,15 +366,17 @@ const PageAbout = ({ testimonialEntries }) => {
 export default PageAbout;
 
 export async function getStaticProps() {
+    const dataFolderPath = path.join(process.cwd(), "src/data");
+
     try {
         const [testimonials] = await Promise.all([
-            api.get.testimonials(),
+            fs.readJson(path.join(dataFolderPath, "testimonials.json")),
         ]);
 
         return {
             props: {
-                testimonialEntries: testimonials.data,
-            }, // will be passed to the page component as props
+                testimonialEntries: testimonials,
+            },
         };
     } catch (error) {
         console.error("Error fetching data:", error);

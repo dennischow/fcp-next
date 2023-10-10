@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import fs from "fs-extra";
+import path from "path";
+
 import * as UTILS from "../../../common/utils";
 import api from "@/services/api";
 import AppLayout from "@/components/common/app-layout/app-layout";
@@ -69,12 +72,14 @@ const PageProjectsDetails = ({ currentPost }) => {
 export default PageProjectsDetails;
 
 export async function getStaticPaths() {
+    const dataFolderPath = path.join(process.cwd(), "src/data");
+
     try {
         const [projects] = await Promise.all([
-            api.get.projects(),
+            fs.readJson(path.join(dataFolderPath, "projects.json")),
         ]);
 
-        const paths = projects.data.map((project) => ({
+        const paths = projects.map((project) => ({
             params: {
                 entryId: project.url_title,
             },
@@ -95,12 +100,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+    const dataFolderPath = path.join(process.cwd(), "src/data");
+
     try {
         const [projects] = await Promise.all([
-            api.get.projects(),
+            fs.readJson(path.join(dataFolderPath, "projects.json")),
         ]);
 
-        const currentPost = projects.data.find((project) => {
+        const currentPost = projects.find((project) => {
             return project.url_title === params.entryId;
         });
 

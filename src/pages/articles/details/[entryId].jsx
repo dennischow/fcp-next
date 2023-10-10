@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import fs from "fs-extra";
+import path from "path";
 import { FaArrowLeft } from "react-icons/fa";
 
 import * as CONSTANTS from "../../../common/constants";
@@ -92,12 +94,14 @@ const PageArticlesDetails = ({ currentPost, relatedPosts }) => {
 export default PageArticlesDetails;
 
 export async function getStaticPaths() {
+    const dataFolderPath = path.join(process.cwd(), "src/data");
+
     try {
         const [articles] = await Promise.all([
-            api.get.articles(),
+            fs.readJson(path.join(dataFolderPath, "articles.json")),
         ]);
 
-        const paths = articles.data.map((article) => ({
+        const paths = articles.map((article) => ({
             params: {
                 entryId: article.url_title,
             },
@@ -118,16 +122,18 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+    const dataFolderPath = path.join(process.cwd(), "src/data");
+
     try {
         const [articles] = await Promise.all([
-            api.get.articles(),
+            fs.readJson(path.join(dataFolderPath, "articles.json")),
         ]);
 
-        const currentPost = articles.data.find((article) => {
+        const currentPost = articles.find((article) => {
             return article.url_title === params.entryId;
         });
 
-        const relatedPosts = currentPost?.related_post?.map((id) => articles.data.find((article) => article.entry_id === id)).filter((post) => post !== undefined);
+        const relatedPosts = currentPost?.related_post?.map((id) => articles.find((article) => article.entry_id === id)).filter((post) => post !== undefined);
 
         return {
             props: {
