@@ -260,8 +260,8 @@ const PageAbout = ({ testimonialEntries }) => {
     return (
         <>
             <Head>
-                <title>About</title>
-                <meta name="description" content="About" />
+                <title>{`About | ${CONSTANTS.AUTHOR} | Front-End Web Developer`}</title>
+                <meta name="description" content={`This is me, this is Dennis Chow a.k.a. Fat-Cow. A Toronto based front-end web developer with design background currently living in Hong Kong.`} />
             </Head>
             <AppLayout>
                 <div className="page-about">

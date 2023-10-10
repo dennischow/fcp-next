@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import Head from "next/head";
+
+import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
 import api from "@/services/api";
 import AppLayout from "@/components/common/app-layout/app-layout";
@@ -7,6 +10,9 @@ import AppFeatureBanner from "@/components/common/app-feature-banner/app-feature
 const PageProjectsDetails = ({ currentPost }) => {
     return (
         <>
+            <Head>
+                <title>{`${currentPost?.title} | Project Details | ${CONSTANTS.BRAND_NAME}`}</title>
+            </Head>
             <AppLayout>
                 <div className="page-projects-details">
                     <AppFeatureBanner

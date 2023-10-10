@@ -22,8 +22,8 @@ const PageHome = ({ projectEntries, articleEntries, testimonialEntries }) => {
     return (
         <>
             <Head>
-                <title>Homepage</title>
-                <meta name="description" content="Homepage" />
+                <title>{`Home | ${CONSTANTS.BRAND_NAME}`}</title>
+                <meta name="description" content={`Fat-Cow Production is an e-channel to showcase Dennis Chow's creativity and passion. It shares my random moments, taste of music, tech news and design inspirations.`} />
             </Head>
             <AppLayout>
                 <div className="page-home">
