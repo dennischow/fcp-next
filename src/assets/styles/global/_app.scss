@@ -27,6 +27,7 @@ body {
     font-family: "Roboto", Arial, "Helvetica Neue", Helvetica, sans-serif;
     color: var(--c-base-color);
     font-size: var(--text-size-body);
+    font-variant-numeric: proportional-nums;
     overflow-y: scroll;
 }
 
