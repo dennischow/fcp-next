@@ -62,7 +62,7 @@ const ProjectsOverview = ({ projectEntries }) => {
         <>
             <Head>
                 <title>{`Projects Overview | ${CONSTANTS.BRAND_NAME}`}</title>
-                <meta name="description" content="Design + Coding is about solving problems. Let my work samples speak on my behalf." />
+                <meta name="description" content={`Design + Coding is about solving problems. Let my work samples speak on my behalf.`} />
             </Head>
             <AppLayout>
                 <div className="app-page page-projects-overview">

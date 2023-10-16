@@ -69,6 +69,7 @@ const ArticlesOverview = ({ articleEntries }) => {
         <>
             <Head>
                 <title>{`Articles Overview | ${CONSTANTS.BRAND_NAME}`}</title>
+                <meta me="description" content={`A e-channel to share what's on my mind. Come hang!`} />
             </Head>
             <AppLayout>
                 <div className="page-articles-overview">
