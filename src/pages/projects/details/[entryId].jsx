@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
+import Link from "next/link";
+import { FaArrowLeft } from "react-icons/fa";
 
 import * as CONSTANTS from "../../../common/constants";
 import * as UTILS from "../../../common/utils";
@@ -63,6 +65,12 @@ const PageProjectsDetails = ({ currentPost }) => {
                                     </div>
                                 </div>
                             </div>
+
+                            <p className="project-details__buttons-container">
+                                <Link className="app-cta app-cta--orange" href={CONSTANTS.ROUTES.projectsOverview.path}>
+                                    <FaArrowLeft /> Back to projects overview
+                                </Link>
+                            </p>
 
                         </div>
                     </div>
