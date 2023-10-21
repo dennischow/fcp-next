@@ -24,6 +24,7 @@
         margin: 0;
         padding: 10px;
         font-size: 1.6rem;
+        line-height: 0.8em;
 
         @include max-media($scr-tablet) {
             padding: 0 10px;

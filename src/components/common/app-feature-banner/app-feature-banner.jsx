@@ -29,8 +29,8 @@ const AppFeatureBanner = ({ type, heroBackgroundUrl, heading, subHeading, ...oth
                     <div className="app-feature-banner__content">
                         <div className="app-feature-banner__tagline">
                             {/* <h2 className="app-feature-banner__heading" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(heading) }}></h2> */}
-                            <h2 className="app-feature-banner__heading" dangerouslySetInnerHTML={{ __html: heading }}></h2>
-                            <p className="app-feature-banner__sub-heading">{subHeading}</p>
+                            <h1 className="app-feature-banner__heading" dangerouslySetInnerHTML={{ __html: heading }}></h1>
+                            <h2 className="app-feature-banner__sub-heading">{subHeading}</h2>
                         </div>
                     </div>
                 </div>
