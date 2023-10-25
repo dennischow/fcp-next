@@ -1,8 +1,13 @@
 RewriteEngine On
 
+# Redirect HTTPS to HTTP
 RewriteCond %{HTTPS} on
 RewriteRule ^(.*)$ http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Redirect 404 errors to 404.html
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.html [L,QSA]
+# Server simply serves the custom error page for the requested URL while keeping the URL unchanged
+ErrorDocument 404 /404.html
+# This will change the URL in the browser's address bar to the custom 404 page URL.
+# RewriteRule ^(.*)$ /404.html [R=302,L]
