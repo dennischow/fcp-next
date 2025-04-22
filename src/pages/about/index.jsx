@@ -199,7 +199,7 @@ const PageAbout = ({ testimonialEntries }) => {
             },
         },
         data: {
-            labels: ["Loud Music", "Javascript", "HTML & CSS", "Designing", "ExpressionEngine", "PHP & MySQL"],
+            labels: ["Drumming & Music", "Javascript", "HTML & CSS", "Designing", "ExpressionEngine", "PHP & MySQL"],
             datasets: [
                 {
                     // label: "Music on Headphone",
@@ -286,7 +286,7 @@ const PageAbout = ({ testimonialEntries }) => {
                                         <p className="intro-group__brief">
                                             I enjoy problem-solving and turning them into sleek and easy-to-use interface designs! I'm passionate about client-side logic, fun micro-interactions, content presentation, and writing code that's both beautiful and efficient. Whether it's HTML5, CSS (LESS/SASS), or JavaScript (Vanilla/jQuery/ReactJS), I always tend follow best practices.
                                             <br /><br />
-                                            When I'm not in front of my computer, you'll probably find me at the gym lifting weights, jamming out to music with my headphones, indulging in delicious food, or sharing pictures on Instagram.
+                                            When I'm not working at my computer, you'll likely find me lifting weights at the gym, jamming to music with my headphones, practicing drums in the studio, or sharing photos on Instagram.
                                         </p>
                                         <p className="intro-group__buttons-container">
                                             <button className="app-cta app-cta--orange" type="button" onClick={toggleProfile}>
@@ -334,7 +334,8 @@ const PageAbout = ({ testimonialEntries }) => {
                                                 )}
                                             </div>
                                             <p className="profile-group__text">Front-End Web Developer responsible for a website's user-facing code and the architecture of its immersive user experiences. As an advanced FEWD, I also made visual design decisions on-the-fly for problem-solving, because some problems of which cannot be solved by writing code alone.</p>
-                                            <p className="profile-group__text"><strong>IMPORTANT NOTE:</strong> Just wanted to give you a heads up that I've created a YouTube channel called <a href="https://www.youtube.com/channel/UCzAOAymXn2n6cfljyj4IKNA?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Chillax Vibes Corner <FaYoutube /></a>. Where I've compiled some of my favorite tracks into playlists that are perfect for relaxing, focusing, and getting things done. Whether you're studying, coding, or just need some background music, my playlists are sure to keep you chill and motivated. Go ahead and give it a listen!</p>
+                                            {/* <p className="profile-group__text"><strong>IMPORTANT NOTE:</strong> Just wanted to give you a heads up that I've created a YouTube channel called <a href="https://www.youtube.com/channel/UCzAOAymXn2n6cfljyj4IKNA?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Chillax Vibes Corner <FaYoutube /></a>. Where I've compiled some of my favorite tracks into playlists that are perfect for relaxing, focusing, and getting things done. Whether you're studying, coding, or just need some background music, my playlists are sure to keep you chill and motivated. Go ahead and give it a listen!</p> */}
+                                            <p className="profile-group__text"><strong>IMPORTANT NOTE:</strong> Just wanted to give you a heads up that I've created a YouTube channel called <a href="https://www.youtube.com/channel/UCoVD3FyTLYEQVR-qkm-5CjQ?sub_confirmation=1" target="_blank" rel="noopener noreferrer">Sik7 Mode <FaYoutube /></a>, where I share my drumming journey, including covers, practice sessions, and progress updates. Whether you’re a drum enthusiast or just curious, I’d love for you to check it out and follow along. If you enjoy the content, please like, subscribe, and share to support the channel!</p>
                                         </div>
                                     </div>
                                 </section>
