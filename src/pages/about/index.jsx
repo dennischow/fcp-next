@@ -23,6 +23,13 @@ import YoutubePlayer from "@/components/shared/youtube-player/youtube-player";
 import TestimonialWidget from "@/components/shared/testimonial-widget/testimonial-widget";
 import heroBackgroundImg from "../../assets/images/about/double-colors-exposure.jpg";
 import profilePicture from "../../assets/images/about/photoshoot-at-central-ferry-piers.jpg";
+import brandLogoBmoFinancialGroupImg from "../../assets/images/about/bmo-financial-group.jpg";
+import brandLogoSomdayAppImg from "../../assets/images/about/somday-app.jpg";
+import brandLogoEdirectInsureGroupImg from "../../assets/images/about/edirectinsure-group.jpg";
+import brandLogoNovaFounderCapitalImg from "../../assets/images/about/nova-founders-capital.jpg";
+import brandLogoCherrypicksImg from "../../assets/images/about/cherrypicks.jpg";
+import brandLogoFwdInsuranceImg from "../../assets/images/about/fwd-insurance.jpg";
+import brandLogoBolttechImg from "../../assets/images/about/bolttech.jpg";
 
 ChartJS.register(
     CategoryScale,
@@ -257,6 +264,44 @@ const PageAbout = ({ testimonialEntries }) => {
         };
     }, []);
 
+    const corporateEngagementsList = [
+        {
+            name: `BMO Financial Group`,
+            logoSrc: brandLogoBmoFinancialGroupImg,
+            info: `BMO is a leading bank driven by a single purpose: to Boldly Grow the Good in business and life. Everywhere we do business, we’re focused on building, investing and transforming how we work to drive performance and continue growing the good.`,
+        },
+        {
+            name: `cherrypicks`,
+            logoSrc: brandLogoCherrypicksImg,
+            info: `Cherrypicks is a regional Mobile Technology and Mobile eCommerce leader specializing in smart city, augmented reality, artificial intelligence, eWallet and location intelligence. The company has developed popular Online-to-Offline (O2O) mobile platforms, a world-class proximity detection and indoor positioning infrastructure Starbeacon, and an augmented reality SDK solution ARwiz. With disruptive O2O solutions as well as patent-pending products and technology inventions, Cherrypicks has won over 100 international and local awards in technology and digital marketing. They include winning the ‘Oscars’ of the IT field, being crowned the World Summit Award Mobile Global Champion and APICTA Winner Awards.`,
+        },
+        {
+            name: `Somday App/Catalysthics`,
+            logoSrc: brandLogoSomdayAppImg,
+            info: `Somday/Catalysthics is a small group of passionate individuals with a straightforward goal of making every day a new adventure. We want to ignite that discovery curiosity inside you and fulfill your needs in living life to the fullest. Aimed to deliver you the hottest shops, deals and events nearby you with our friendly easy to use the platform.`,
+        },
+        {
+            name: `Nova Founders Capital`,
+            logoSrc: brandLogoNovaFounderCapitalImg,
+            info: `Nova Founders Capital invests in and builds sustainable large-scale business models in rapidly growing internet markets. We are very disciplined company builders and investors and understand how to efficiently grow companies. Our companies receive the continuous financial and operational support they need to be successful.`,
+        },
+        {
+            name: `Edirectinsure Group`,
+            logoSrc: brandLogoEdirectInsureGroupImg,
+            info: `EdirectInsure Group operates leading online insurance platforms in Asia, offering non-life insurance to consumers at the price they can afford, in a language they can understand. We aim to provide people an alternative to buying insurance direct versus through brokers and agents.`,
+        },
+        {
+            name: `FWD Insurance`,
+            logoSrc: brandLogoFwdInsuranceImg,
+            info: `FWD is the insurance business of investment group, Pacific Century Group. FWD is focused on creating fresh customer experiences, with easy-to-understand products, supported by leading digital technologies. Through this customer-led approach, FWD will achieve its vision to become the leading pan-Asian insurer that changes the way people feel about insurance.`,
+        },
+        {
+            name: `bolttech`,
+            logoSrc: brandLogoBolttechImg,
+            info: `bolttech is an international insurtech with a mission to build the world’s leading, technology-enabled ecosystem for protection and insurance.`,
+        },
+    ];
+
     return (
         <>
             <Head>
@@ -347,6 +392,29 @@ const PageAbout = ({ testimonialEntries }) => {
                                     <p className="passions-group__text">something I enjoy of doing</p>
                                     <div className="passions-group__bar-chart">
                                         <Bar options={ratioOfPassions.options} data={ratioOfPassions.data} />
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section className="corporate-engagements-group">
+                                <div className="corporate-engagements-group__container">
+                                    <div className="corporate-engagements-group__box corporate-engagements-group__box--header">
+                                        <p className="corporate-engagements-group__header">Experiences</p>
+                                        <p className="corporate-engagements-group__text">I am <span>proud</span> to have been part of such <span>remarkable organizations</span></p>
+                                    </div>
+                                    <div className="corporate-engagements-group__box corporate-engagements-group__box--content">
+                                        <ul className="corporate-engagements-group__list">
+                                            {corporateEngagementsList?.map((item, index) => {
+                                                return (
+                                                    <li className="corporate-engagements-group__list-item" key={index}>
+                                                        <img className="corporate-engagements-group__brand-img" src={item.logoSrc.src} alt={item.name} />
+                                                        <span className="corporate-engagements-group__brand-text" aria-hidden="true">
+                                                            {item.info}
+                                                        </span>
+                                                    </li>
+                                                )
+                                            })}
+                                        </ul>
                                     </div>
                                 </div>
                             </section>
